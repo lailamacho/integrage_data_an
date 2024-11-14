@@ -4,7 +4,7 @@ import plotly.express as px
 from pycountry import countries
 from funkce import *
 
-filepath = "./exporty/export_dovednosti_02.csv"
+filepath = "./exporty/dovednosti_24-10-01.csv"
 df = pd.read_csv(filepath, sep=';')
 
 df = df[['country', 'education']].dropna()

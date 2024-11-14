@@ -4,7 +4,7 @@ import seaborn as sns
 import math
 from funkce import *
 
-file_path = "./exporty/export_dovednosti_02.csv"  # NUTNO MĚNIT ÚDAJE!!!
+file_path = "./exporty/dovednosti_24-10-01.csv"  # NUTNO MĚNIT ÚDAJE!!!
 df = pd.read_csv(file_path, sep=";")
 
 ## LM_01: BOXPLOT - rozložení bodů pro jednotlivé země v každém sub_topic za danou kompetenci

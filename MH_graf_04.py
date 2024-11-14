@@ -4,13 +4,13 @@ import seaborn as sns
 from funkce import *
 from typing import List
 
-file_path_1 = "./exporty/export_tech_zdat_02.csv"  # NUTNO MĚNIT ÚDAJE!!!
+file_path_1 = "./exporty/tech_zdat_24-10-01.csv"  # NUTNO MĚNIT ÚDAJE!!!
 df_1 = pd.read_csv(file_path_1, sep=";")
 
-file_path_2 = "./exporty/export_dovednosti_02.csv"  # NUTNO MĚNIT ÚDAJE!!!
+file_path_2 = "./exporty/dovednosti_24-10-01.csv"  # NUTNO MĚNIT ÚDAJE!!!
 df_2 = pd.read_csv(file_path_2, sep=";")
 
-file_path_3 = "./exporty/export_os_rozv_02.csv"  # NUTNO MĚNIT ÚDAJE!!!
+file_path_3 = "./exporty/os_rozv_24-10-01.csv"  # NUTNO MĚNIT ÚDAJE!!!
 df_3 = pd.read_csv(file_path_3, sep=";")
 
 zvolena_zeme_kod = "CZ"  # NUTNO MĚNIT ÚDAJE

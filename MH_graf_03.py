@@ -5,7 +5,7 @@ import numpy as np
 import math
 from funkce import *
 
-file_path = "./exporty/export_tech_zdat_02.csv"  # NUTNO MĚNIT ÚDAJE!!!
+file_path = "./exporty/dovednosti_24-10-01.csv"  # NUTNO MĚNIT ÚDAJE!!!
 df = pd.read_csv(file_path, sep=";")
 
 
@@ -67,6 +67,9 @@ for idx, sub_topic in enumerate(sub_topics):
     axes[idx].set_xlabel('')
     axes[idx].set_ylabel('Počet')
     axes[idx].tick_params(axis='x', rotation=45)
+
+for ax in axes[len(sub_topics):]: # odstraneni prazdnych subplotu (lichy pocet sub_topic)
+    fig.delaxes(ax)
 
 fig.legend(labels=labels, fontsize='small', markerfirst=False, draggable=True)
 fig.suptitle(f'Výsledky v jednotlivých podtématech v dotazníku: {kompetence}')

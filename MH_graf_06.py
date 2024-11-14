@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 from funkce import *
 
-file_path = "./exporty/export_dovednosti_02.csv"
+file_path = "./exporty/dovednosti_24-10-01.csv"
 df = pd.read_csv(file_path, sep=';')
 
 ## MH_06: LINE CHART (spojnicový graf)

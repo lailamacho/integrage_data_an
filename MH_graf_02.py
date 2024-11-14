@@ -4,7 +4,7 @@ import seaborn as sns
 import math
 from funkce import *
 
-file_path = "./exporty/export_os_rozv_02.csv"  # NUTNO MĚNIT ÚDAJE!!!
+file_path = "./exporty/dovednosti_24-10-01.csv"  # NUTNO MĚNIT ÚDAJE!!!
 df = pd.read_csv(file_path, sep=";")
 
 ## MH_02_01: GROUPED BAR CHART (skupinový sloupcový graf) - porovnání jednotlivých výsledků (sub_topic) z dotazníku
