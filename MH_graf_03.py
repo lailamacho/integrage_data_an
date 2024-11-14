@@ -71,4 +71,6 @@ for idx, sub_topic in enumerate(sub_topics):
 fig.legend(labels=labels, fontsize='small', markerfirst=False, draggable=True)
 fig.suptitle(f'Výsledky v jednotlivých podtématech v dotazníku: {kompetence}')
 plt.tight_layout(rect=[0, 0, 1, 0.95])
+filename = input("Název souboru: ")
+fig.savefig(f"./grafy/{filename}.png", dpi=300, bbox_inches='tight')
 plt.show()

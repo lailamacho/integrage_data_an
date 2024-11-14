@@ -89,10 +89,12 @@ for achieved, missing in zip(perc_achieved, perc_missing):
 sns.set_theme(style="whitegrid")
 colors = sns.color_palette("Paired", len(proportions))
 
-plt.figure(figsize=(8, 8))
+fig = plt.figure(figsize=(8, 8))
 plt.pie(proportions, colors=colors, autopct='%1.1f%%', startangle=90, wedgeprops={'edgecolor': 'black'})
 plt.title(f'Podíl dosažených bodů ze všech tří dotazníků pro zemi: {country_code[zvolena_zeme_kod][0]}')
 plt.legend(labels, draggable=True, loc='lower center', bbox_to_anchor=(1, 0, 0.5, 1))
+filename = input("Název souboru: ")
+fig.savefig(f"./grafy/{filename}.png", dpi=300, bbox_inches='tight')
 
 
 # vykreslení B) chybějící body jako jedna část
@@ -103,8 +105,10 @@ labels_2 = topic_names + ['Chybějící body']
 proportions_2 = perc_achieved + [perc_total_missing]
 colors_2 = sns.color_palette("pastel", len(topic_names)) + ['#d3d3d3']
 
-plt.figure(figsize=(8, 8))
+fig = plt.figure(figsize=(8, 8))
 plt.pie(proportions_2, colors=colors_2, autopct='%1.1f%%', startangle=90, wedgeprops={'edgecolor': 'black'})
 plt.title(f'Podíl dosažených bodů ze všech tří dotazníků pro zemi: {country_code[zvolena_zeme_kod][0]}')
 plt.legend(labels_2, draggable=True, loc='lower center', bbox_to_anchor=(1, 0, 0.5, 1))
+filename = input("Název souboru: ")
+fig.savefig(f"./grafy/{filename}.png", dpi=300, bbox_inches='tight')
 plt.show()

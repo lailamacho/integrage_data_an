@@ -32,7 +32,7 @@ df_grouped = df_2.groupby(['sub_topic', 'rank'], observed=False).size().reset_in
 
 # Vykreslení A) porovnání jednotlivých výsledků (sub_topic) z dotazníku
 sns.set_theme(style="whitegrid")
-plt.figure(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(12, 6))
 
 sns.barplot(
     data=df_grouped,
@@ -47,8 +47,10 @@ plt.xlabel('')
 plt.tick_params(rotation=45)
 plt.ylabel('Počet')
 plt.legend(title='Úroveň', fontsize='small', markerfirst=False, draggable=True)
-plt.tight_layout()
+#fig.tight_layout()
 
+filename = input("Název souboru: ")
+fig.savefig(f"./grafy/{filename}.png", dpi=300, bbox_inches='tight')
 
 #---------------------------------------------------------------------------------------------------------------
 ## MH_02_02: GROUPED BAR CHART (skupinový sloupcový graf) - porovnání jednotlivých výsledků (su_topic) dle zemí z dotazníku
@@ -87,4 +89,8 @@ for ax in axes[num_subplots:]: # odstraneni prazdnych subplotu (lichy pocet sub_
 fig.suptitle(f'Přehled výsledků dle zemí v jednotlivých podtématech dotazníku: {kompetence}')
 plt.tight_layout(rect=[0, 0, 1, 0.95])
 plt.legend(ncols=1, fontsize='small', markerfirst=False, draggable=True)
+
+filename = input("Název souboru: ")
+fig.savefig(f"./grafy/{filename}.png", dpi=300, bbox_inches='tight')
+
 plt.show()
