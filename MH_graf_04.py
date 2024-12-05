@@ -3,6 +3,7 @@ import pandas as pd
 import seaborn as sns
 from funkce import *
 from typing import List
+from random import randint
 
 file_path_1 = "./exporty/tech_zdat_24-10-01.csv"  # NUTNO MĚNIT ÚDAJE!!!
 df_1 = pd.read_csv(file_path_1, sep=";")
@@ -57,7 +58,6 @@ def compute_points_in_topic(dfs: List[pd.DataFrame]):
         df_for_sum_achieved = df[points_cols].head(1)
 
         sum_max_df =  int(df_for_sum_max.sum(axis=1)) #TODO: fix -> FutureWarning: Calling int on a single element Series is deprecated and will raise a TypeError in the future. Use int(ser.iloc[0]) instead
-        sum_achieved_df = int(df_for_sum_achieved.sum(axis=1))
         sum_achieved_df = int(df_for_sum_achieved.sum(axis=1))
 
         max_points_topic.append(sum_max_df)
