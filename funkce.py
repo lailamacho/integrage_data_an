@@ -87,6 +87,33 @@ def col_to_topic(col: str) -> str:
         if col in values:
             return name
 
+def col_to_zkr(col:str) -> str:
+    dovednosti_sub_topics = {"sub_topic_3": "Odborné dovednosti a jejich rozvoj",
+                "sub_topic_4": "Flexibilita",
+                "sub_topic_5": "Zdravotní stav",
+                "sub_topic_6": "Sebedůvěra a motivace",
+                "sub_topic_7": "Finanční a sociální bariéry"}
+    
+    os_rozvoj_sub_topics = {"sub_topic_8": "Životní spokojenost",
+                            "sub_topic_12": "Pracovní spokojenost",
+                            "sub_topic_19": "Pracovní benefity",
+                            "sub_topic_20": "Problémy na pracovišti"}
+
+    tech_zdatnost_sub_topics = {"sub_topic_13": "Základní počítačové dovednosti",
+                                "sub_topic_14": "Práce s kancelářským softwarem",
+                                "sub_topic_15": "Internetové dovednosti",
+                                "sub_topic_16": "Komunikace a sociální sítě",
+                                "sub_topic_17": "Řešení problémů a správa systému",
+                                "sub_topic_18": "Produktivita a digitální tvorba"}
+
+    dict_dict = {"D": dovednosti_sub_topics,
+                 "OS": os_rozvoj_sub_topics,
+                 "TZ": tech_zdatnost_sub_topics}
+
+    for name, values in dict_dict.items():
+        if col in values:
+            return name
+            
 
 def my_dicts(choice) -> dict:
     assert choice in ["D", "O", "T"], "Povolené hodnoty parametru = D, O, T"
