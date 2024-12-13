@@ -89,7 +89,7 @@ def hist(dotazniky: List[Tuple[pd.DataFrame, str]], choice: str, my_country:str,
                 data=df_2,
                 x='age',
                 weights=operace,
-                stat='density',
+                stat='percent',
                 bins=range(50, int(df_2['age'].max()) + 5, 5),
                 palette=['#00addc']
 
@@ -101,7 +101,7 @@ def hist(dotazniky: List[Tuple[pd.DataFrame, str]], choice: str, my_country:str,
         plt.title(title, loc='left')
         plt.xlabel('Věk')
         plt.tick_params(rotation=0)
-        plt.ylabel(f'{popisek} bodů')             
+        plt.ylabel(f'{popisek} bodů (%)')             
         fig.tight_layout()
     fig.savefig(f"./grafy/{filename}.png", dpi=300, bbox_inches='tight')
     #plt.show()
