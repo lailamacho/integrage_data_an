@@ -40,7 +40,7 @@ def paths_to_dfs(paths: List[List[str]]):
 x = paths_to_dfs(my_paths)
 choice = ['mean', 'modus', 'median']
 
-def bar_chart(dotazniky: List[list[pd.DataFrame, str]], choice: str):
+def bar_plot(dotazniky: List[list[pd.DataFrame, str]], choice: str):
     for operace in choice:
         data_df = pd.DataFrame()
         labels = []
@@ -97,4 +97,4 @@ def bar_chart(dotazniky: List[list[pd.DataFrame, str]], choice: str):
     plt.show()
 
 
-bar_chart(x, choice)
+bar_plot(x, choice)

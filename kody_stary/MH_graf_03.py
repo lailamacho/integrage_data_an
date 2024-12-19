@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import math
-from funkce import *
+from kody_nove.funkce import *
 
 file_path = "./exporty/dovednosti_24-10-01.csv"  # NUTNO MĚNIT ÚDAJE!!!
 df = pd.read_csv(file_path, sep=";")

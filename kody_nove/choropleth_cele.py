@@ -14,7 +14,7 @@ do = "11. 12. 2024"
 
 df = pd.concat([df_1, df_2], axis=0, ignore_index=True)
 
-make_for_subtopics = True ## NUTNO MĚNIT
+make_for_subtopics = False ## NUTNO MĚNIT
 
 choice = ['mean', 'modus', 'median']
 
@@ -29,12 +29,8 @@ df_filtred['country'] = df['country']
 def choropleth(df_filtred: pd.DataFrame, choice:List, sub_topic:bool, col=None, col_2=None):
     if sub_topic == False:
         work_with = 'achieved'
-        title = f"{popisek} získaných bodů z dotazníku: {kompetence} <br>z období od {od} do {do}"
-        nazev = kompetence
     else:
         work_with = col
-        title = f"{popisek} získaných bodů z dotazníku: {kompetence}, v podtématu: {col_to_name(col_2)} <br>z období od {od} do {do}"
-        nazev = col_to_name(col_2)
 
     for operace in choice:
         if operace == 'modus':
@@ -48,6 +44,18 @@ def choropleth(df_filtred: pd.DataFrame, choice:List, sub_topic:bool, col=None, 
             df_filtred['median'] = df_filtred[['country', work_with]].groupby(['country']).transform('median')
         data = df_filtred[['country', operace]].drop_duplicates(keep='first').dropna().reset_index()
         data["country"] = data["country"].apply(lambda x: countries.get(alpha_2=x).alpha_3 if countries.get(alpha_2=x) else x)
+
+        if sub_topic == False:
+            title = f"{popisek} získaných bodů z dotazníku: {kompetence} <br>z období od {od} do {do}"
+            nazev = kompetence
+            filename = f"CH_{operace}_{nazev}"
+
+        else:
+            title = f"{popisek} získaných bodů z dotazníku: {kompetence}, v podtématu: {col_to_name(col_2)} <br>z období od {od} do {do}"
+            nazev = col_to_name(col_2)
+            filename = f"CH_{operace}_{nazev}"
+
+
 
         fig = px.choropleth(
             data,
@@ -70,7 +78,6 @@ def choropleth(df_filtred: pd.DataFrame, choice:List, sub_topic:bool, col=None, 
                 projection=dict(scale=4)
             )
         )
-        filename = f"{nazev}_{operace}"
         plotly.offline.plot(fig, filename=f'./grafy/{filename}.html')
     fig.show()
 
@@ -82,5 +89,4 @@ if make_for_subtopics == False:
 
 else:
     for col, col_2 in zip(points_cols, sub_topic_cols):
-        print(col, col_2)
-        #choropleth(df_filtred, choice, True, col, col_2)
+        choropleth(df_filtred, choice, True, col, col_2)
